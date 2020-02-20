@@ -45,6 +45,12 @@ class SavingsAccount {
         System.out.println();
         return result;
     }  // method withdrawal
+    public synchronized void deposit(int DepositAmount){
+        balance+=DepositAmount;
+        System.out.println("Amount has been deposit: " + DepositAmount);
+        System.out.println("Now total balance is: " + balance);
+        System.out.println();
+    }  // deposit method
 }  // class SavingsAccount
 
 
@@ -56,6 +62,7 @@ class ATM extends Thread {
 
     public void run() {
         account.withdrawal(300);
+        account.deposit(200);
     } // method run
 
     SavingsAccount account;
